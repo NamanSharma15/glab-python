@@ -1,0 +1,4 @@
+You have Chosen 'Guess The Number'
+In This Game You have to Guess the Number with the help of the given hints
+We have randomly Selected a number from 1 to 100 
+Hints for the Number are as follows: 

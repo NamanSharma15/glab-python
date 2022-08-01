@@ -1,0 +1,8 @@
+We have the following options for you (New games will be added soon)
+Guess The Number (Enter 1 to play)
+Jumble Words (Enter 2 to play)
+Memory Word Game (Enter 3 to play)
+Key Speed Game (Enter 4 to play)
+Hard Wordle (Enter 5 to play)
+Hangman (Enter 6 to play)
+Exit (Enter n to Exit)
