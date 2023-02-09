@@ -1,6 +1,6 @@
-def logr():
+import pandas as pd
+def sqlcon():
   import mysql.connector
-  import getpass
   mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -8,6 +8,13 @@ def logr():
     database="GLab"
   )
   mycur = mydb.cursor()
+  def save():
+    mydb.commit()
+  return mycur,mydb
+def logr():
+  import getpass
+  global j,id
+  mycur,mydb = sqlcon()
   kk1 = 0
   while(kk1==0):
     nn = input("Enter 1 to Register or 2 to Login ")
@@ -21,9 +28,9 @@ def logr():
           k=1
       else:
         a = list(r[-1])
-        k = a[-1]+1
+        k = a[-2]+1
       print("Your UID is "+str(k))
-      mycur.execute("INSERT into Users Values('{}','{}',{})". format(n,s,k))
+      mycur.execute("INSERT into Users Values('{}','{}',{},'0,0,0/0,0,0/0,0,0/0,0,0/0,0,0/0,0,0')". format(n,s,k))
     elif nn=="2":
       n = int(input("Enter your UID: "))
       s = getpass.getpass("Your Password: ")
@@ -31,8 +38,10 @@ def logr():
       r = mycur.fetchall()
       for i in r:
         a  = list(i)
+        id =a[2]
         if a[1]==s and a[2]==n:
               kk1 = 1
+              j = a[3]
               print("You have logined as "+a[0])
               break
         elif a[1]!=s and a[2]==n:
@@ -41,4 +50,15 @@ def logr():
         else:
           print("You are not registered try again")
           break
+    mydb.commit()
+def getSt():
+  return j
+def updateStats(rsa):
+  global j
+  j = rsa
+  mycur,mydb = sqlcon()
+  mycur.execute("Update Users SET Stats ='{}' Where uid= {}".format(rsa,id))
   mydb.commit()
+def showStats(blist):
+  df = pd.DataFrame(blist,columns=["Numgame","JumbleWords","Memory Game","Wordle","Hangman"])
+  print(df)

@@ -1,5 +1,7 @@
-def Memory():
+def Memory(slist):
+    global x
     import time,random
+    slist[0]+=1
     def limP(b):
         print (b,end="\r")
         time.sleep(3.5)
@@ -34,9 +36,14 @@ def Memory():
             n = input("Enter The Faviourate Fruit of a "+L[c]+" : ")
             if n==K[c]:
                 print("Well Done")
+                slist[1]+=1
                 break
             elif i<1:
                 print("try again \n")
             i+=1
         if i>1:
             print("Correct Fruit For "+L[c]+" is "+K[c])
+            slist[2]+=1
+    x = slist
+def getBack():
+    return x

@@ -1,9 +1,11 @@
-def jumble():
+def jumble(slist):
     import random
+    global x
     f1 = open('WordH.txt','r')
     s = f1.readlines()
     num = len(s)
     b = random.randint(0,len(s)-1)
+    slist[0]+=1
     sentence  = s[b]
     words = sentence.split(" ")
     words1 = []
@@ -30,9 +32,14 @@ def jumble():
         guess = input("Enter the Correct Sentence: ")
         if guess==sentence.replace("\n",""):
             print("Correct Sentence")
+            slist[1]+=1
             break
         elif(guess!=sentence.replace("\n","") and i<4):
             print("Try again")
         else:
             print("Desired Sentence is "+sentence)
             print("Better Luck Next Time")
+            slist[2]+=1
+    x = slist
+def getBack():
+    return x

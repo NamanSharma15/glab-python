@@ -1,4 +1,5 @@
-def hang():    
+def hang(slist):    
+    global x
     from Hangpics import pics
     import random
     import re
@@ -8,6 +9,7 @@ def hang():
                 l1.append(a)
     f = open('Hangwords.txt','r')
     g = f.readlines()
+    slist[0]+=1
     h = []
     ha = 0
     ndel(g,h)
@@ -45,9 +47,14 @@ def hang():
                     print(j,end=" ")
                 print()
                 print("You Have Found Out The Word")
+                slist[1]+=1
                 break
         else:
             print("You are out of Guesses")
             print("The Correct Word is "+A)
             print("Better Luck Next Time")
+            slist[2]+=1
             break
+    x=slist
+def getBack():
+    return x

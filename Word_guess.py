@@ -1,4 +1,5 @@
-def Mywordle():    
+def Mywordle(slist):
+    global x    
     from termcolor import colored
     import random
     def ndel(l,l1):
@@ -8,6 +9,7 @@ def Mywordle():
     h = True
     f = open('wordlist.txt','r')
     g = f.readlines()
+    slist[0]+=1
     h = []
     ndel(g,h)
     r = random.randint(0,len(h)-1)
@@ -32,6 +34,7 @@ def Mywordle():
             elif Inp==A:
                 print("Correct Guess")
                 print(colored(Inp,'white','on_green'),end=" ")
+                slist[1]+=1
                 break
             else:
                 l = [i for i in Inp]
@@ -45,7 +48,11 @@ def Mywordle():
                 print()
                 print("You are Out of Guesses try again")
                 print("Correct Word is "+A)
+                slist[2]+=1
                 break
             P+=1
         else:
             print("Enter a Five Lettered Word Instead")
+    x = slist
+def getBack():
+    return x
