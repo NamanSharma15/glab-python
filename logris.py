@@ -60,5 +60,5 @@ def updateStats(rsa):
   mycur.execute("Update Users SET Stats ='{}' Where uid= {}".format(rsa,id))
   mydb.commit()
 def showStats(blist):
-  df = pd.DataFrame(blist,columns=["Numgame","JumbleWords","Memory Game","Wordle","Hangman"])
+  df = pd.DataFrame(blist,index=["Numgame","JumbleWords","Memory Game","Wordle","Hangman"],columns=["Games","Wins","Loses"])
   print(df)

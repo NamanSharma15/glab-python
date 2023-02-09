@@ -9,9 +9,9 @@ import Word_guess as wg
 import Hangman as hg
 def getShowarr(blist):
     l = []
-    for i in blist:
+    for i in range(0,len(blist)):
         if(i != 3):
-            a = i.split(",")
+            a = blist[i].split(",")
             l.append(list(map(int, a)))
     return l
 def updateArray(lis,ind):
@@ -43,7 +43,6 @@ print("To Play as a new user you can register or as a new user you can login ")
 lo.logr()
 d = lo.getSt()
 blist = d.split("/")
-print(blist)
 print(r1)
 while cont==1:
     n = input("Enter the Game No. or Enter n to exit: ")
@@ -125,9 +124,11 @@ while cont==1:
                 break
             if cont==0:
                 break
+    if n.lower()=="s":
+        print("Your Stats are :")
+        lo.showStats(getShowarr( blist))
     d = "/".join(blist)
     lo.updateStats(d)
-    lo.showStats(blist)
     if cont==0:
         break
     if n=="n":
