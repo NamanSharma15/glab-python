@@ -33,7 +33,7 @@ def Mywordle(slist):
                 print()
             elif Inp==A:
                 print("Correct Guess")
-                print(colored(Inp,'white','on_green'),end=" ")
+                print(colored(Inp,'white','on_green'))
                 slist[1]+=1
                 break
             else:

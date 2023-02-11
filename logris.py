@@ -36,20 +36,24 @@ def logr():
       s = getpass.getpass("Your Password: ")
       mycur.execute("SELECT * FROM Users")
       r = mycur.fetchall()
-      for i in r:
-        a  = list(i)
+      i = 0
+      while i<len(r):
+        a  = list(r[i])
+        print(a)
         id =a[2]
-        if a[1]==s and a[2]==n:
-              kk1 = 1
-              j = a[3]
-              print("You have logined as "+a[0])
-              break
+        if a[1]==s and (a[2]==n or f'{a[2]}'==n):
+          kk1 = 1
+          j = a[3]
+          print("You have logined as "+a[0])
+          break
         elif a[1]!=s and a[2]==n:
           print("Your Password is Wrong")
           break
         else:
-          print("You are not registered try again")
-          break
+          i+=1
+      else:
+        print("You are not registered try again")
+        break
     mydb.commit()
 def getSt():
   return j

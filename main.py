@@ -118,7 +118,7 @@ while cont==1:
         print("You have to find the word by entering a Character before the man is hanged")
         while eh == 1:
             hg.hang(getArray(blist,int(n)-1))
-            updateArray(wg.getBack(),int(n)-1)
+            updateArray(hg.getBack(),int(n)-1)
             rep()
             if exe==0:
                 break
