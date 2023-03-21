@@ -39,7 +39,6 @@ def logr():
       i = 0
       while i<len(r):
         a  = list(r[i])
-        print(a)
         id =a[2]
         if a[1]==s and (a[2]==n or f'{a[2]}'==n):
           kk1 = 1
